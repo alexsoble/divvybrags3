@@ -10,9 +10,9 @@ $(function() {
 
   tripRows.each(function(row) {
     let dataCells = $(this).children();
-    let tripJson = (new TripHtmlRow(dataCells)).toJson();
+    let rowTripData = (new TripHtmlRow(dataCells)).toJsObject();
 
-    pageTripsData.push(tripJson);
+    pageTripsData.push(rowTripData);
   });
 
   console.log(pageTripsData);

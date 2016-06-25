@@ -39,7 +39,7 @@ class TripHtmlRow {
 
   // Return json:
 
-  toJson () {
+  toJsObject () {
     return {
       trip_id: this.trip_id,
       start_station: this.start_station,
