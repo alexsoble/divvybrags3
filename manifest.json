@@ -20,6 +20,7 @@
         "vendor/jquery-3.0.0.min.js",
         "trip_html_row.js",
         "find_total_trips.js",
+        "scrape_page.js",
         "script.js"
       ]
     }
