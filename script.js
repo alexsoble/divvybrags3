@@ -4,11 +4,18 @@ $(function() {
 
   if (tripTable.length !== 1) return;
 
-  const tripRowsHtml = $("#tripTable tbody tr").html();
+  const tripRows= $("#tripTable tbody tr");
 
-  let tripsData = $.map(tripRowsHtml, function(htmlRow) {
-    console.log(htmlRow);
+  let pageTripsData = [];
+
+  tripRows.each(function(row) {
+    let dataCells = $(this).children();
+    let tripJson = (new TripHtmlRow(dataCells)).toJson();
+
+    pageTripsData.push(tripJson);
   });
+
+  console.log(pageTripsData);
 });
 
 // Detect if the page is a trip list
