@@ -1,0 +1,30 @@
+{
+  "manifest_version": 2,
+
+  "name": "DivvyBrags 3",
+  "description": "Liberate your bikeshare data.",
+  "version": "0.1",
+
+  "icons": {
+    "48": "icon48.png"
+  },
+
+  "content_scripts": [
+    {
+      "matches": [
+        "https://www.divvybikes.com/account/trips",
+        "https://www.divvybikes.com/account/trips/*"
+      ],
+
+      "js": [
+        "vendor/jquery-3.0.0.min.js",
+        "script.js"
+      ]
+    }
+  ],
+
+  "web_accessible_resources": ["script.js"],
+
+  "permissions": [ "http://divvybrags-leaderboard.herokuapp.com/" ]
+
+}
