@@ -5,9 +5,17 @@ $(function() {
   const tripTable = $("#tripTable");
   if (tripTable.length !== 1) return;
 
-  // If yes, look up total # of trips and add it to data:
+  // If yes, look up total # of trips and store it to data:
   const totalTrips = findTotalTrips($('#content'));
-  console.log(totalTrips);
+  chrome.storage.sync.set({ 'totalTripsCount': totalTrips }, function() {});
+
+  chrome.storage.sync.get('tripsDataArray', function(data) {
+    let tripsDataSize = data.length || 0;
+    console.log(tripsDataSize);
+    if (totalTrips > tripsDataSize) {
+      alert('Dearest user, we are going to need some more trip data for you!');
+    };
+  });
 
 // Compare total number of trips with trips stored in data
 

@@ -27,6 +27,6 @@
 
   "web_accessible_resources": ["script.js"],
 
-  "permissions": [ "http://divvybrags-leaderboard.herokuapp.com/" ]
+  "permissions": [ "http://divvybrags-leaderboard.herokuapp.com/", "storage" ]
 
 }
