@@ -2,9 +2,10 @@ function scrapePage (tripRows) {
 
   // Let's start by fetching our trips list from local storage!
   chrome.storage.sync.get('tripsDataArray', function(data) {
-    if ($.isEmptyObject(data)) { data = []; }
+    let unwrapper = new ChromeStorageUnwrapper(data);
+    unwrappedData = unwrapper.unwrappedData();
 
-    const storedTripIds = data.map(function(trip) {
+    const storedTripIds = unwrappedData.map(function(trip) {
       return trip['trip_id'];
     });
 
@@ -19,12 +20,12 @@ function scrapePage (tripRows) {
       let isNotYetStored = (storedTripIds.indexOf(trip_id) === -1);
 
       if (isNotYetStored) {
-        data.push(rowTripData);
+        unwrappedData.push(rowTripData);
       }
     });
 
     // Then when all is done, update the trips data array in local storage:
-    chrome.storage.sync.set({ 'tripsDataArray': data }, function() {});
+    chrome.storage.sync.set({ 'tripsDataArray': unwrappedData }, function() {});
 
   });
 

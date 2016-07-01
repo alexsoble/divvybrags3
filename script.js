@@ -10,8 +10,10 @@ $(function() {
   chrome.storage.sync.set({ 'totalTripsCount': totalTrips }, function() {});
 
   chrome.storage.sync.get('tripsDataArray', function(data) {
-    let tripsDataSize = data.length || 0;
-    console.log(tripsDataSize);
+    let unwrapper = new ChromeStorageUnwrapper(data);
+    unwrappedData = unwrapper.unwrappedData();
+
+    let tripsDataSize = unwrappedData.length || 0;
 
     // Compare total number of trips with trips stored in data:
     if (totalTrips > tripsDataSize) {
