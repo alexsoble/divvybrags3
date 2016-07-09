@@ -36,8 +36,9 @@ class TripHtmlRow {
 
   get duration () { return this.getValueForCell(this.duration_index); }
 
-
-  // Return json:
+  toCsvRow () {
+    return `${this.trip_id},${this.start_station},${this.start_time},${this.end_station},${this.end_time},${this.duration}`
+  }
 
   toJsObject () {
     return {

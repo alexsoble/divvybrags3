@@ -1,0 +1,14 @@
+#downloadArea {
+  background-color: black;
+  color: white;
+  font-weight: bold;
+  height: 160px;
+  width: 100%;
+  position: absolute;
+  bottom: 0px;
+  padding: 20px;
+
+  p {
+    color: white !important;
+  }
+}
