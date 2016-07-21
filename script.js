@@ -8,6 +8,8 @@ $(function() {
 
   const csvText = scrapePage(tripRows);
 
+  (new pageScraper($('body'))).findMonth();
+
   const downloadHref = 'data:attachment/csv,' + encodeURIComponent(csvText);
 
   const downloadLink = `<a href=${downloadHref}
