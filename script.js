@@ -34,7 +34,7 @@ $(function() {
                           ${downloadLink}
                         </div>`;
 
-  $('body').append(downloadArea);
+  $('#tripTable').before(downloadArea);
 
 });
 
